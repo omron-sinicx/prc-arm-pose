@@ -1,39 +1,50 @@
-name: deploy
+name: pages
+
 on:
   push:
-    branches:
-      - main
+    branches: [ main ]
+  workflow_dispatch:
+
 permissions:
   contents: read
   pages: write
   id-token: write
+
+concurrency:
+  group: "pages"
+  cancel-in-progress: true
 
 jobs:
   build:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
+
       - name: Use Node.js
         uses: actions/setup-node@v4
         with:
-          node-version: '22.13.1'
-          cache: 'npm'
-      - name: Install dependencies
+          node-version: 20
+          cache: npm
+
+      - name: Install deps
         run: npm ci
-      - name: Build
+
+      - name: Build (Vite)
         run: npm run build
-      - name: Show build dir
+
+      - name: Show build dir (sanity check)
         run: |
-          echo "=== BUILD CONTENTS ==="
-          ls -la
-          echo "=== ./build ==="
-          ls -la build || true
+          echo "=== ls -la build ==="
+          ls -la build
+
       - name: Add .nojekyll
         run: touch build/.nojekyll
-      - name: Upload artifact
+
+      - name: Upload artifact (ONLY build/)
         uses: actions/upload-pages-artifact@v3
         with:
           path: build
+
   deploy:
     needs: build
     runs-on: ubuntu-latest
