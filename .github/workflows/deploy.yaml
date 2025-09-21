@@ -22,7 +22,14 @@ jobs:
         run: npm ci
       - name: Build
         run: npm run build
-        continue-on-error: true
+      - name: Show build dir
+        run: |
+          echo "=== BUILD CONTENTS ==="
+          ls -la
+          echo "=== ./build ==="
+          ls -la build || true
+      - name: Add .nojekyll
+        run: touch build/.nojekyll
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
