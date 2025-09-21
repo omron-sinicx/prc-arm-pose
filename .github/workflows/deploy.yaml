@@ -1,5 +1,4 @@
 name: pages
-
 on:
   push:
     branches: [ main ]
@@ -32,10 +31,27 @@ jobs:
       - name: Build (Vite)
         run: npm run build
 
-      - name: Show build dir (sanity check)
+      # ここで build/ の中身と index.html の先頭を出力して可視化
+      - name: Show build dir
         run: |
           echo "=== ls -la build ==="
           ls -la build
+          echo "=== first 80 lines of build/index.html ==="
+          head -n 80 build/index.html || true
+
+      # 重要：サブパスずれの保険。/assets/... が残っていたら /prc-arm-pose/assets/... に強制置換
+      - name: Ensure subpath (/prc-arm-pose/) in index.html
+        run: |
+          if grep -q 'src="/assets/' build/index.html || grep -q 'href="/assets/' build/index.html; then
+            sed -i 's|src="/assets/|src="/prc-arm-pose/assets/|g; s|href="/assets/|href="/prc-arm-pose/assets/|g' build/index.html
+            echo "Fixed absolute asset paths in index.html"
+          fi
+
+      # base: './' を使ったり、他の要因で / が残る場合の最後の保険（必要なければそのまま）
+      - name: Ensure relative fallback (optional)
+        if: ${{ false }} # 必要になったら true に変更
+        run: |
+          sed -i 's|src="/|src="./|g; s|href="/|href="./|g' build/index.html
 
       - name: Add .nojekyll
         run: touch build/.nojekyll
