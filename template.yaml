@@ -8,8 +8,7 @@ affiliation: "OMRON SINIC X Corporation"
 year: 2025
 conference: "IEEE/RSJ International Conference on Intelligent Robots and Systems (IROS 2025)" 
 url: https://omron-sinicx.github.io/prc-arm-pose/
-
-# paper: "/papers/arm_pose_estimation.pdf"
+image: https://omron-sinicx.github.io/prc-arm-pose/teaser.png" 
 
 # Metadata
 tags:
@@ -19,15 +18,22 @@ tags:
   - Physical Reservoir Computing
   - Cable-driven Manipulator
 
-# Summary
-summary: >
-  We propose a pose estimation method for a lightweight 9-DOF cable-driven serpentine manipulator,
-  exploiting flexibility-induced variations as computational resources through Physical Reservoir Computing (PRC).
-  Our method achieves a mean pose error of 4.3 mm, comparable to an LSTM baseline and far superior to analytical models,
-  enabling robust perception and control in unstructured environments.
+resources:
+  paper: null
+  poster: null
+  code: null
+  video: null                               # ← 無ければ必ず null に
+  blog: null
+  demo: null
+  huggingface: null
 
-# Media
-image: https://omron-sinicx.github.io/prc-arm-pose/teaser.png" 
+# Summary
+overview: |
+  - Lightweight 9-DOF cable-driven serpentine arm (545 mm, 308 g)
+  - PRC exploits intrinsic dynamics; no joint-embedded sensors
+  - Mean pose error 4.3 mm (vs LSTM 4.4 mm; analytical 39.5 mm)
+
+
 
 # BibTeX
 bibtex: |
