@@ -15,6 +15,33 @@ import data from '../../template.yaml';
 
 import '@/js/styles.js';
 
+const {
+  theme = 'default',
+  organization = '',
+  twitter = '',
+  title = '',
+  conference = '',
+  resources = {},
+  authors = [],
+  affiliations = [],
+  meta = [],
+  header = {},          // ← null ではなく空オブジェクトを渡す
+  teaser = null,
+  overview = '',
+  body = [],
+  projects = [],
+  links = [],
+  keywords = [],
+  publications = [],
+  datasets = [],
+  awards = [],
+  press = [],
+  sections = [],
+  bibtex = '',
+  speakerdeck = null,
+  contact_ids = [],
+} = data ?? {};
+
 class Template extends React.Component {
   render() {
     return (

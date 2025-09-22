@@ -85,11 +85,9 @@ export default class Header extends React.Component {
   }
 
   render() {
-    const titleClass = `uk-${
-      this.props.title.length > 15 ? 'h2' : 'h1'
-    } uk-text-primary`;
-    const baseStyle = this.props.header?.bg_image
-      ? {
+    const title = this.props.title ?? '';
+    const titleClass = `uk-${ title.length > 15 ? 'h2' : 'h1' } uk-text-primary`;
+    const baseStyle = this.props.header?.bg_image ? {
           backgroundImage: `url(${this.props.header.bg_image})`,
           backgroundSize: 'contain',
           backgroundRepeat: 'no-repeat',
@@ -97,15 +95,14 @@ export default class Header extends React.Component {
           backgroundColor: '#030706',
         }
       : null;
-    const backgroundStyle = this.state.isMobile
-      ? null
-      : {
-          backgroundImage: `url(${this.props.header.bg_curve})`,
-          backgroundSize: 'contain',
-          backgroundRepeat: 'no-repeat',
-          backgroundPosition: 'right',
-          margin: '20px 10px 20px 0px',
-        };
+    const hasBgCurve = !!this.props.header?.bg_curve;
+    const backgroundStyle = (this.state.isMobile || !hasBgCurve) ? null : {
+      backgroundImage: `url(${this.props.header.bg_curve})`,
+      backgroundSize: 'contain',
+      backgroundRepeat: 'no-repeat',
+      backgroundPosition: 'right',
+      margin: '20px 10px 20px 0px',
+    };
     return (
       <>
         <div
@@ -137,7 +134,7 @@ export default class Header extends React.Component {
                 </a>
               </div>
               <div className="uk-flex uk-flex-center uk-margin-top">
-                {Object.keys(this.props.resources).map((key) => (
+                {Object.keys(this.props.resources || {}).map((key) => (
                   <ResourceBtn
                     url={this.props.resources[key]}
                     title={key}

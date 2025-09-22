@@ -59,11 +59,11 @@ bibtex: >
     year={2020}
   }
 
-header: null
-  # bg_curve: sinic_curve.png
+header: 
+  bg_curve: sinic_curve.png
+  bg_image: null
+  logo: null
   #   #  bg_image: https://github.com/omron-sinicx/swarm-body/raw/main/images/teaser.jpg
-  # bg_image: null
-  # logo: null
 
 teaser: teaser.png
 overview: |
