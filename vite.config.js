@@ -5,7 +5,7 @@ import path from 'path';
 
 // https://vite.dev/config/
 export default defineConfig({
-  base: './',
+  base: '/prc-arm-pose/',
   resolve: {
     alias: {
       '@': path.resolve(__dirname, 'src'),
