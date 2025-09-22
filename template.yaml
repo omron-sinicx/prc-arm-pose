@@ -12,8 +12,8 @@ resources:
   demo: https://colab.research.google.com/
   huggingface: https://huggingface.co/
 description: explore a new challenge in transfer RL, where only a set of source policies collected under unknown diverse dynamics is available for learning a target task efficiently.
-image: https://omron-sinicx.github.io/${your-repository-name}/teaser.png
-url: https://omron-sinicx.github.io/${your-repository-name}
+image: https://omron-sinicx.github.io/prc-arm-pose/teaser.png
+url: https://omron-sinicx.github.io/prc-arm-pose
 speakerdeck: b7a0614c24014dcbbb121fbb9ed234cd
 authors:
   - name: So Kuroki
@@ -59,8 +59,7 @@ bibtex: >
     year={2020}
   }
 header:
-  bg_curve:
-    sinic_curve.png
+  bg_curve: sinic_curve.png
     #  bg_image: https://github.com/omron-sinicx/swarm-body/raw/main/images/teaser.jpg
 
 teaser: teaser.png
@@ -262,3 +261,10 @@ projects:
     description: |
       "maru" (= miniature assemblage adaptive robot unit) is a custom-made, miniature-sized, two-wheeled robot designed specifically for tabletop swarm robotics research.
     url: https://github.com/omron-sinicx/swarm-body
+
+links: []
+keywords: []
+publications: []
+datasets: []
+awards: []
+press: []
