@@ -5,15 +5,15 @@ title: 'Multi-Agent Behavior Retrieval: Retrieval-Augmented Policy Training for 
 conference: IROS2024
 resources:
   paper: https://arxiv.org/abs/1909.13111
-  poster: null 
+  poster: null
   code: https://github.com/omron-sinicx/multipolar
   video: https://www.youtube.com/embed/W8nBFKDxsb0
   blog: https://medium.com/sinicx/multipolar-multi-source-policy-aggregation-for-transfer-reinforcement-learning-between-diverse-bc42a152b0f5
   demo: https://colab.research.google.com/
   huggingface: https://huggingface.co/
 description: explore a new challenge in transfer RL, where only a set of source policies collected under unknown diverse dynamics is available for learning a target task efficiently.
-image: https://omron-sinicx.github.io/prc-arm-pose/teaser.png
-url: https://omron-sinicx.github.io/prc-arm-pose
+image: https://omron-sinicx.github.io/${your-repository-name}/teaser.png
+url: https://omron-sinicx.github.io/${your-repository-name}
 speakerdeck: b7a0614c24014dcbbb121fbb9ed234cd
 authors:
   - name: So Kuroki
@@ -58,12 +58,10 @@ bibtex: >
     booktitle={International Joint Conference on Artificial Intelligence (IJCAI)},
     year={2020}
   }
-
-header: 
-  bg_curve: sinic_curve.png
-  bg_image: null
-  logo: null
-  #   #  bg_image: https://github.com/omron-sinicx/swarm-body/raw/main/images/teaser.jpg
+header:
+  bg_curve:
+    sinic_curve.png
+    #  bg_image: https://github.com/omron-sinicx/swarm-body/raw/main/images/teaser.jpg
 
 teaser: teaser.png
 overview: |
@@ -264,11 +262,3 @@ projects:
     description: |
       "maru" (= miniature assemblage adaptive robot unit) is a custom-made, miniature-sized, two-wheeled robot designed specifically for tabletop swarm robotics research.
     url: https://github.com/omron-sinicx/swarm-body
-
-links: []
-keywords: []
-publications: []
-datasets: []
-awards: []
-press: []
-sections: []
